@@ -1,0 +1,2 @@
+module TickerSymbolHelper
+end

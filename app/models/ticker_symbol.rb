@@ -1,0 +1,2 @@
+class TickerSymbol < ApplicationRecord
+end
