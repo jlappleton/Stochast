@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title Stochast
+    =csrf_meta_tags
+    =csp_meta_tag
+
+    =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    =javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body{ class:"text-center"}
+    =yield
+  %footer{ class:"container"}
+    %div{ class:"row"}
+      %div{ class:"col-sm"}
+        %a{ class:"btn btn-outline-warning btn-small", href: "/privacy-policy.html", target:"_blank"}
+          Policy of Privacy
+      %div{ class:"col-sm"}
+        %a{ class:"btn btn-outline-warning btn-small", href: "/about", target:"_blank"}
+          About
+      %div{ class:"col-sm"}
+        %a{ class:"btn btn-outline-warning btn-small", href: "/tos.html", target:"_blank"}
+          Terms of Service
+    
