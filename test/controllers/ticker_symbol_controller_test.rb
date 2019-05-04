@@ -7,7 +7,12 @@ class TickerSymbolControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get ticker_symbol_show_url
+    get "/ticker_symbol/AAPL"
+    assert_response :success
+  end
+  
+  test "should get about page" do
+    get "/about"
     assert_response :success
   end
 

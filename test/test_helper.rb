@@ -1,3 +1,19 @@
+require 'simplecov'
+SimpleCov.start do
+  add_filter "/test/"
+  add_filter "/spec/"
+  add_filter "/initializers/"
+  add_filter "environment.rb"
+  add_filter "/environments/"
+end
+require 'minitest/autorun'
+SimpleCov.command_name "Minitest"
+require 'codecov'
+SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov,
+  ])
+  
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
