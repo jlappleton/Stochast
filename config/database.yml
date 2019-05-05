@@ -4,22 +4,34 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
+# 
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
+  encoding: utf8
+  port: 3306
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: <%= RDS_DB_NAME %>  # Which you have entered you creating database
+  username: <%= RDS_USERNAME %> # db master username
+  password: <%= RDS_PASSWORD %> # db master password
+  host: <%= RDS_HOSTNAME %>     # db instance entrypoint
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: <%= RDS_DB_NAME %>  # Which you have entered you creating database
+  username: <%= RDS_USERNAME %> # db master username
+  password: <%= RDS_PASSWORD %> # db master password
+  host: <%= RDS_HOSTNAME %>     # db instance entrypoint
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: stochast  # Which you have entered you creating database
+  username: <%= RDS_USERNAME %> # db master username
+  password: <%= RDS_PASSWORD %> # db master password
+  host: stochast.cluster-cunawh1r1esb.us-east-1.rds.amazonaws.com     # db instance entrypoint
