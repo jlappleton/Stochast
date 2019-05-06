@@ -14,24 +14,24 @@ default: &default
 
 development:
   <<: *default
-  database: <%= RDS_DB_NAME %>  # Which you have entered you creating database
-  username: <%= RDS_USERNAME %> # db master username
-  password: <%= RDS_PASSWORD %> # db master password
-  host: <%= RDS_HOSTNAME %>     # db instance entrypoint
+  database: testjastochast  # Which you have entered you creating database
+  username: <%= ENV.fetch("RDS_USERNAME") %> # db master username
+  password: <%= ENV.fetch("RDS_PASSWORD") %> # db master password
+  host: stochastest.cunawh1r1esb.us-east-1.rds.amazonaws.com     # db instance entrypoint
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <%= RDS_DB_NAME %>  # Which you have entered you creating database
-  username: <%= RDS_USERNAME %> # db master username
-  password: <%= RDS_PASSWORD %> # db master password
-  host: <%= RDS_HOSTNAME %>     # db instance entrypoint
+  database: testjastochast  # Which you have entered you creating database
+  username: <%= ENV.fetch("RDS_USERNAME") %> # db master username
+  password: <%= ENV.fetch("RDS_PASSWORD") %> # db master password
+  host: stochastest.cunawh1r1esb.us-east-1.rds.amazonaws.com     # db instance entrypoint
 
 production:
   <<: *default
-  database: stochast  # Which you have entered you creating database
-  username: <%= RDS_USERNAME %> # db master username
-  password: <%= RDS_PASSWORD %> # db master password
-  host: stochast.cluster-cunawh1r1esb.us-east-1.rds.amazonaws.com     # db instance entrypoint
+  database: testjastochast  # Which you have entered you creating database
+  username: <%= ENV.fetch("RDS_USERNAME") %> # db master username
+  password: <%= ENV.fetch("RDS_PASSWORD") %> # db master password
+  host: stochastest.cunawh1r1esb.us-east-1.rds.amazonaws.com     # db instance entrypoint
