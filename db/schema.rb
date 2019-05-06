@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_190723) do
+ActiveRecord::Schema.define(version: 2019_05_06_074235) do
 
-  create_table "ticker_symbols", force: :cascade do |t|
+  create_table "ticker_symbols", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "symb"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "exchange"
+    t.string "industry"
+    t.string "sector"
     t.index ["symb"], name: "index_ticker_symbols_on_symb"
   end
 
