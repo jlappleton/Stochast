@@ -1,0 +1,2 @@
+class HistoricalQuote < ApplicationRecord
+end

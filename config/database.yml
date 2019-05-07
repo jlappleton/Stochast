@@ -15,6 +15,8 @@ default: &default
 development:
   <<: *default
   database: testjastochast  # Which you have entered you creating database
+  # username: Rails.application.secretes.rds[:username] # db master username
+  # password: Rails.application.secretes.rds[:password] # db master password
   username: <%= ENV.fetch("RDS_USERNAME") %> # db master username
   password: <%= ENV.fetch("RDS_PASSWORD") %> # db master password
   host: stochastest.cunawh1r1esb.us-east-1.rds.amazonaws.com     # db instance entrypoint
@@ -25,6 +27,8 @@ development:
 test:
   <<: *default
   database: testjastochast  # Which you have entered you creating database
+  # username: Rails.application.secretes.rds[:username] # db master username
+  # password: Rails.application.secretes.rds[:password] # db master password
   username: <%= ENV.fetch("RDS_USERNAME") %> # db master username
   password: <%= ENV.fetch("RDS_PASSWORD") %> # db master password
   host: stochastest.cunawh1r1esb.us-east-1.rds.amazonaws.com     # db instance entrypoint

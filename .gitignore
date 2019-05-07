@@ -32,3 +32,6 @@
 
 # Ignore coverage files
 /coverage/*
+
+#ignore secrets
+secrets.yml
