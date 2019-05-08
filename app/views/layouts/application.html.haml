@@ -7,18 +7,43 @@
 
     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     =javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    
+    %meta{ name:"viewport", content:"width=device-width, initial-scale=1" }
 
   %body{ class:"text-center"}
+    %div{ class:"jumbotron", style:"margin-bottom=0" }
+      %div{ class:"container" }
+        %h1{ class: "display-1" }Stochast
+        %p{ class: "lead"}
+          Stock Price Prediction
+          %span{ class: "badge badge-pill badge-danger" }Pre Alpha
+    %nav{ class:"navbar navbar-default" }
+      %div{ class:"container-fluid text-center" }
+        %div{ id:"myNavbar" }
+          %ul{ class:"nav nav-pills" }
+            %li{class: "mr-3"}
+              %a{ class:"btn btn-outline-warning btn-small", href: "/" }
+                Home
+            %li{class: "mr-3 shadow"}
+              %a{ class:"btn btn-outline-warning btn-small", href: "/ticker_symbol/AAPL" }
+                Predictions
+                // TODO: implement a dropdown of available stocks, selection takes to prediction for the select
+            %li{class: "mr-3"}
+              %a{ class:"btn btn-outline-warning btn-small", href: "/admin" }
+                %span{ class:"glyphicon glyphicon-admin" }
+                  Admin
+            %li{class: "mr-3"}
+              %a{ class:"btn btn-outline-warning btn-small", href: "/about" }
+                About
     =yield
   %footer{ class:"container"}
-    %div{ class:"row"}
-      %div{ class:"col-sm"}
-        %a{ class:"btn btn-outline-warning btn-small", href: "/privacy-policy.html", target:"_blank"}
-          Policy of Privacy
-      %div{ class:"col-sm"}
-        %a{ class:"btn btn-outline-warning btn-small", href: "/about", target:"_blank"}
-          About this App
-      %div{ class:"col-sm"}
-        %a{ class:"btn btn-outline-warning btn-small", href: "/tos.html", target:"_blank"}
-          Terms of Service
-    
+    %nav{ class:"navbar navbar-default" }
+      %div{ class:"container-fluid text-center" }
+        %div{ id:"myNavbar" }
+          %ul{ class:"nav nav-pills" }
+            %li{class: "mr-3"}
+              %a{ class:"btn btn-outline-warning btn-small", href: "/privacy-policy.html", target:"_blank"}
+                Privacy Policy
+            %li{class: "mr-3 shadow"}
+              %a{ class:"btn btn-outline-warning btn-small", href: "/tos.html", target:"_blank"}
+                Terms of Service
