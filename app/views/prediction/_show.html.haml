@@ -1,0 +1,25 @@
+- predict = Prediction.where(["symbol = ?", params[:symbol]]).last
+%div{ class: "col-md-4" }
+  %div{ class: "card border-success mb-3" }
+    %div{ class: "card-header" }
+      %h4{ class: "card-title" }
+        = params[:symbol]
+    %div{ class: "card-body" }
+      %p{ class: "card-text" }
+        text
+%div{ class: "col-md-4" }
+  %div{ class: "card border-success mb-3" }
+    %div{ class: "card-header" }
+      %h4{ class: "card-title" }
+        = params[:task_id]
+    %div{ class: "card-body" }
+      %p{ class: "card-text" }
+        text
+%div{ class: "col-md-4" }
+  %div{ class: "card border-success mb-3" }
+    %div{ class: "card-header" }
+      %h4{ class: "card-title" }
+        = params[:answer]
+    %div{ class: "card-body" }
+      %p{ class: "card-text" }
+        text

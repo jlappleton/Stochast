@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  prediction_open: 9.99
+  prediction_close: 9.99
+  prediction_trend: 9.99
+
+two:
+  symbol: MyString
+  prediction_open: 9.99
+  prediction_close: 9.99
+  prediction_trend: 9.99

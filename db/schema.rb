@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_074235) do
+ActiveRecord::Schema.define(version: 2019_05_06_225611) do
+
+  create_table "historical_quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "symbol"
+    t.date "quote_date"
+    t.decimal "open", precision: 10
+    t.decimal "high_sub_low", precision: 10
+    t.decimal "close", precision: 10
+    t.decimal "change_percent", precision: 10
+    t.decimal "change_over_time", precision: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "predictions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "symbol"
+    t.decimal "prediction_open", precision: 10
+    t.decimal "prediction_close", precision: 10
+    t.decimal "prediction_trend", precision: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "question"
+    t.text "content"
+    t.string "answer_1"
+    t.string "answer_2"
+    t.string "answer_3"
+    t.string "answer_4"
+    t.integer "num_responses"
+    t.decimal "answer_totals", precision: 10
+    t.decimal "avg_answer", precision: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ticker_symbols", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "symb"

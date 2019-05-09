@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyText
+  content: MyText
+  answer_1: MyString
+  answer_2: MyString
+  answer_3: MyString
+  answer_4: MyString
+  num_responses: 1
+  answer_totals: 9.99
+  avg_answer: 9.99
+
+two:
+  question: MyText
+  content: MyText
+  answer_1: MyString
+  answer_2: MyString
+  answer_3: MyString
+  answer_4: MyString
+  num_responses: 1
+  answer_totals: 9.99
+  avg_answer: 9.99

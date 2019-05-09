@@ -1,2 +1,62 @@
-<h1>TickerSymbol#show</h1>
-<p>Find me in app/views/ticker_symbol/show.html.erb</p>
+- heading = @symb[:name] + ", " + @symb[:industry] + ": " + @symb[:sector]
+%div{ class: "jumbotron" }
+  %h3{ class: "display-3" }
+    = @symb[:symb]
+  %h4{ class: "lead" }
+    = heading
+  %div{ class: "container" }
+    %div{ class: "row justify-content-center", id: "task-prediction" }
+      %div{ class: "col-lg-11" }
+        %div{ class: "card border-danger mb-3" }
+          %div{ class: "card-header" }
+            %h4{ class: "card-title" }
+              Select a checkbox to reveal the forecast
+          %div{ class: "card-body" }
+            %p{ class: "card-text" }
+              =@task[:question]
+            = link_to("Read More", @task[:content])
+            %p{ class: "card-text" }
+              How will this effect 
+              =@symb[:name]
+            - task_uri = "/prediction/" + @symb[:symb] + "/" + @task[:id].to_s
+            %div{ class: "container text-left" }
+              %div{ class:"col-lg-3" }
+                = check_box_tag("answer", "0.5", false, {remote: true, data: {url: task_uri, remote: true}})
+                I do not know
+            %div{ class: "container text-left" }
+              %div{ class:"col-lg-3" }
+                = check_box_tag("answer", "0.5", false, {remote: true, data: {url: task_uri, remote: true}})
+                It will not
+            %div{ class: "container text-left" }
+              %div{ class:"col-lg-3" }
+                = check_box_tag("answer", "0", false, {remote: true, data: {url: task_uri, remote: true}})
+                This may have a negative impact
+            %div{ class: "container text-left" }
+              %div{ class:"col-lg-3" }
+                = check_box_tag("answer", "1", false, {remote: true, data: {url: task_uri, remote: true}})
+                This may have a positive effect
+    %div{ class: "row justify-content-center" }
+      %div{ class: "col-sm-4" }
+        %div{ class: "card border-info mb-3" }
+          %div{ class: "card-header" }
+            %h4{ class: "card-title" }
+              heading
+          %div{ class: "card-body" }
+            %p{ class: "card-text" }
+              text
+      %div{ class: "col-sm-4" }
+        %div{ class: "card border-info mb-3" }
+          %div{ class: "card-header" }
+            %h4{ class: "card-title" }
+              heading
+          %div{ class: "card-body" }
+            %p{ class: "card-text" }
+              text
+      %div{ class: "col-sm-4" }
+        %div{ class: "card border-info mb-3" }
+          %div{ class: "card-header" }
+            %h4{ class: "card-title" }
+              heading
+          %div{ class: "card-body" }
+            %p{ class: "card-text" }
+              text
