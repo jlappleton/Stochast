@@ -93,6 +93,8 @@ GEM
     execjs (2.7.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.13.1)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.10.0)
     github-markup (3.0.4)
     globalid (0.4.2)
@@ -119,6 +121,11 @@ GEM
     httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    iex-ruby-client (1.0.0)
+      faraday (>= 0.9)
+      faraday_middleware
+      hashie
+      money_helper
     io-like (0.3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
@@ -152,6 +159,11 @@ GEM
     mini_racer (0.2.5)
       libv8 (>= 6.9.411)
     minitest (5.11.3)
+    money (6.13.3)
+      i18n (>= 0.6.4, <= 2)
+    money_helper (1.0.2)
+      activesupport
+      money (~> 6.5)
     msgpack (1.2.10)
     multi_json (1.13.1)
     multi_xml (0.6.0)
@@ -305,6 +317,7 @@ DEPENDENCIES
   github-markup
   google-api-client
   haml
+  iex-ruby-client
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

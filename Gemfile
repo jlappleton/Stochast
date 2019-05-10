@@ -33,6 +33,8 @@ gem 'github-markup'
 gem 'google-api-client'
 gem 'omniauth-google-oauth2'
 
+gem 'iex-ruby-client'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
