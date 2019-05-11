@@ -6,6 +6,8 @@ class TickerSymbol < ApplicationRecord
     return false
   end
   def self.load_list symbol_list
-    symbols = TickerSymbol.create(symbol_list)
+    symbol_list.each do |s|
+      TickerSymbol.create(id: s.child[:iexId], symb: s.child[:symbol], exchange: s.child[:exchange], name: s.child[:name])
+    end
   end
 end
