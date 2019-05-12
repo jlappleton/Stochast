@@ -32,4 +32,8 @@ class AdminController < ApplicationController
     end
     #@symbols = get_iex_hash "ref-data/symbols"
   end
+  def privacy_policy
+  end
+  def tos
+  end
 end

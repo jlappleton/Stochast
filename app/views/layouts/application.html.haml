@@ -15,7 +15,7 @@
       =flash_message
     %nav{ class:"navbar navbar-default" }
       %span{ class:"navbar-brand d-flex flex-fill" }
-        %a{ class:"", href:"/" }
+        %a{ class:"nav-link", href:"/", style:"color:white;" }
           %h5
             Stochast
             %span{ class: "lead badge badge-pill badge-danger" }Alpha
@@ -31,10 +31,10 @@
           %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/about" }
             About
         %li{class: "nav-item  mr-2"}
-          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/privacy-policy.html", target:"_blank"}
+          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/privacy-policy"}
             Privacy Policy
         %li{class: "nav-item mr-2"}
-          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/tos.html", target:"_blank"}
+          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/tos"}
             Terms of Service
     =yield
   %footer
