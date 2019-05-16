@@ -1,23 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  question: MyText
-  content: MyText
-  answer_1: MyString
-  answer_2: MyString
-  answer_3: MyString
-  answer_4: MyString
-  num_responses: 1
-  answer_totals: 9.99
-  avg_answer: 9.99
+  id: 1
+  question: Test question 1?
+  content: This is some content. A short sentence or two of text followed by a link.
+  link: https://zephcon.com
+  num_responses: 0
+  answer_totals: 0
+  avg_answer: 0
+  symb: MSFT
 
 two:
-  question: MyText
-  content: MyText
-  answer_1: MyString
-  answer_2: MyString
-  answer_3: MyString
-  answer_4: MyString
-  num_responses: 1
-  answer_totals: 9.99
-  avg_answer: 9.99
+  id: 2
+  question: Test question 2?
+  content: This is some content. A short sentence or two of text followed by a link.
+  link: https://zephcon1.com
+  num_responses: 0
+  answer_totals: 0
+  avg_answer: 0

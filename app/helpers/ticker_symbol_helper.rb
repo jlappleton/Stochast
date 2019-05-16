@@ -18,21 +18,20 @@ module TickerSymbolHelper
           haml_concat ticker_symb[:up_down]
         end
       end
-      # News links
       haml_tag :div, :class => "list-group list-group-flush" do
-        haml_tag :a, :href => "#", :class => "list-group-item btn btn-danger btn-sm btn-block" do
-          haml_concat "News Link"
+        haml_tag :p do
+          haml_concat ticker_symb[:exchange]
         end
-        haml_tag :a, :href => "#", :class => "list-group-item btn btn-danger btn-sm btn-block" do
-          haml_concat "News Link"
+        haml_tag :p do
+          haml_concat ticker_symb[:industry]
         end
-        haml_tag :a, :href => "#", :class => "list-group-item btn btn-danger btn-sm btn-block" do
-          haml_concat "News Link"
+        haml_tag :p do
+          haml_concat ticker_symb[:sector]
         end
       end
       # Last updated information
       haml_tag :div, :class => "card-footer text-muted" do
-        haml_concat "last updated: " + ticker_symb[:latest_update]
+        haml_concat "last updated: " + ticker_symb[:updated_at].strftime("%b %-d, %Y")
       end
     end
   end

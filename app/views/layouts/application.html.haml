@@ -21,9 +21,9 @@
             %span{ class: "lead badge badge-pill badge-danger" }Alpha
       %ul{ class:"nav nav-pills justify-content-center d-flex flex-fill" }
         %li{class: "nav-item  mr-2"}
-          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/ticker_symbol/AAPL" }
-            Predictions
-            // TODO: implement a dropdown of available stocks, selection takes to prediction for the select
+          %select{ onchange:"location = this.value;" }
+            - ticker_array = TickerSymbol.all.map { |sym| [sym.symb, "/ticker_symbol/" + sym.symb] }
+            = options_for_select ticker_array
         %li{class: "nav-item  mr-2"}
           %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/auth/google_oauth2" }
             Admin
