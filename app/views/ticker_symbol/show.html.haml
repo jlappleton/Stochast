@@ -36,27 +36,45 @@
                 = check_box_tag("answer", "1", false, {remote: true, data: {url: task_uri, remote: true}})
                 This may have a positive effect
     %div{ class: "row justify-content-center" }
+      %div{ class: "col-sm-12" }
+        %div{ class: "card border-info mb-12" }
+          %div{ class: "card-header" }
+            %h4{ class: "card-title" }
+              Intraday Average
+          %div{ class: "card-body" }
+            %p{ class: "card-text" }
+              = line_chart( @id_chart_data )
+    %div{ class: "row justify-content-center" }
+      %div{ class: "col-sm-12" }
+        %div{ class: "card border-info mb-12" }
+          %div{ class: "card-header" }
+            %h4{ class: "card-title" }
+              Intraday high - low
+          %div{ class: "card-body" }
+            %p{ class: "card-text" }
+              = line_chart( @vol_chart_data )
+    %div{ class: "row justify-content-center" }
+      %div{ class: "col-sm-12" }
+        %div{ class: "card border-info mb-12" }
+          %div{ class: "card-header" }
+            %h4{ class: "card-title" }
+              Intraday open - close
+          %div{ class: "card-body" }
+            %p{ class: "card-text" }
+              = line_chart( @updown_id_data )
+    %div{ class: "row justify-content-center" }
       %div{ class: "col-sm-4" }
         %div{ class: "card border-info mb-3" }
           %div{ class: "card-header" }
             %h4{ class: "card-title" }
-              heading
+              chart_data
           %div{ class: "card-body" }
-            %p{ class: "card-text" }
-              text
+            =pp @vol_chart_data
       %div{ class: "col-sm-4" }
         %div{ class: "card border-info mb-3" }
           %div{ class: "card-header" }
             %h4{ class: "card-title" }
-              heading
+              orig_data
           %div{ class: "card-body" }
             %p{ class: "card-text" }
-              text
-      %div{ class: "col-sm-4" }
-        %div{ class: "card border-info mb-3" }
-          %div{ class: "card-header" }
-            %h4{ class: "card-title" }
-              heading
-          %div{ class: "card-body" }
-            %p{ class: "card-text" }
-              text
+              = pp @intraday
