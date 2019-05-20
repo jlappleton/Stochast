@@ -1,9 +1,64 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  symb: MyString
-  name: MyString
+  symb: AAPL
+  name: Apple, Inc.
+  exchange: NASDAQ
+  industry: Telecommunications 
+  sector: Electronic Technology
 
 two:
-  symb: MyString
-  name: MyString
+  symb: MSFT
+  name: Microsoft Corp.
+  exchange: NASDAQ
+  industry: Packaged Software
+  sector: Technology Services
+  
+three:
+  symb: AMZN
+  name: Amazon.com, Inc.
+  exchange: NASDAQ
+  industry: Internet Retail
+  sector: Retail Trade
+
+four:
+  symb: GOOG
+  name: Alphabet, Inc.
+  exchange: NASDAQ
+  industry: Internet Software/Services
+  sector: Technology Services
+
+five:
+  symb: AMD
+  name: Advanced Micro Devices, Inc.
+  exchange: NASDAQ
+  industry: Semiconductors
+  sector: Electronic Technology
+  
+six:
+  symb: INTC
+  name: Intel Corp.
+  exchange: NASDAQ
+  industry: Semiconductors
+  sector: Electronic Technology
+
+seven:
+  symb: NVDA
+  name: NVIDIA Corp.
+  exchange: NASDAQ
+  industry: Semiconductors
+  sector: Electronic Technology
+  
+eight:
+  symb: APPF
+  name: AppFolio, Inc.
+  exchange: NASDAQ
+  industry: Information Technology
+  sector: Technology Services
+
+nine:
+  symb: TTD
+  name: The Trade Desk, Inc.
+  exchange: NASDAQ
+  industry: Advertising/Marketing Services
+  sector: Commercial Services

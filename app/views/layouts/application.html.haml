@@ -11,39 +11,32 @@
     %meta{ name:"viewport", content:"width=device-width, initial-scale=1" }
 
   %body{ class:"text-center"}
-    %div{ class:"jumbotron", style:"margin-bottom=0" }
-      %div{ class:"container" }
-        %h1{ class: "display-1" }Stochast
-        %p{ class: "lead"}
-          Stock Price Prediction
-          %span{ class: "badge badge-pill badge-danger" }Pre Alpha
+    %div{ class:"container" }
+      =flash_message
     %nav{ class:"navbar navbar-default" }
-      %div{ class:"container-fluid text-center" }
-        %div{ id:"myNavbar" }
-          %ul{ class:"nav nav-pills" }
-            %li{class: "mr-3"}
-              %a{ class:"btn btn-outline-warning btn-small", href: "/" }
-                Home
-            %li{class: "mr-3 shadow"}
-              %a{ class:"btn btn-outline-warning btn-small", href: "/ticker_symbol/AAPL" }
-                Predictions
-                // TODO: implement a dropdown of available stocks, selection takes to prediction for the select
-            %li{class: "mr-3"}
-              %a{ class:"btn btn-outline-warning btn-small", href: "/auth/google_oauth2" }
-                %span{ class:"glyphicon glyphicon-user" }
-                  Admin
-            %li{class: "mr-3"}
-              %a{ class:"btn btn-outline-warning btn-small", href: "/about" }
-                About
+      %span{ class:"navbar-brand d-flex flex-fill" }
+        %a{ class:"nav-link", href:"/", style:"color:white;" }
+          %h5
+            Stochast
+            %span{ class: "lead badge badge-pill badge-danger" }Alpha
+      %ul{ class:"nav nav-pills justify-content-center d-flex flex-fill" }
+        %li{class: "nav-item  mr-2"}
+          %select{ onchange:"location = this.value;" }
+            - ticker_array = TickerSymbol.all.map { |sym| [sym.symb, "/ticker_symbol/" + sym.symb] }
+            = options_for_select ticker_array
+        %li{class: "nav-item  mr-2"}
+          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/auth/google_oauth2" }
+            Admin
+        %li{class: "nav-item  mr-2"}
+          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/about" }
+            About
+        %li{class: "nav-item  mr-2"}
+          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/privacy-policy"}
+            Privacy Policy
+        %li{class: "nav-item mr-2"}
+          %a{ class:"nav-link btn btn-outline-warning btn-sm", href: "/tos"}
+            Terms of Service
     =yield
-  %footer{ class:"container"}
+  %footer
     %nav{ class:"navbar navbar-default" }
-      %div{ class:"container-fluid text-center" }
-        %div{ id:"myNavbar" }
-          %ul{ class:"nav nav-pills" }
-            %li{class: "mr-3"}
-              %a{ class:"btn btn-outline-warning btn-small", href: "/privacy-policy.html", target:"_blank"}
-                Privacy Policy
-            %li{class: "mr-3 shadow"}
-              %a{ class:"btn btn-outline-warning btn-small", href: "/tos.html", target:"_blank"}
-                Terms of Service
+      %a{ class:"nav-link btn btn-outline-info btn-xsmall", href:"https://iexcloud.io" }Data provided by IEX Cloud

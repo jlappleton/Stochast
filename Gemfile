@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml'
 gem 'commonmarker'
 gem 'github-markup'
+gem 'chartkick'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -32,6 +33,8 @@ gem 'github-markup'
 
 gem 'google-api-client'
 gem 'omniauth-google-oauth2'
+
+gem 'iex-ruby-client'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
