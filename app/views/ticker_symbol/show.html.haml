@@ -17,7 +17,7 @@
             = link_to("Read More", @task[:content])
             %p{ class: "card-text" }
               How will this effect 
-              =@symb[:name]
+              =@task[:symb]
             - task_uri = "/prediction/" + @symb[:symb] + "/" + @task[:id].to_s
             %div{ class: "container text-left" }
               %div{ class:"col-lg-3" }
