@@ -1,17 +1,11 @@
 %div{ class:"container-fluid" }
   %div{ class:"row" }
-    %nav{ class:"col-md-2 d-none d-md-block sidebar" }
+    %nav{ class:"col-sm-1 d-none d-sm-block sidebar" }
       %div{ class:"sidebar-sticky" }
         %ul{ class:"nav nav-pills flex-column" }
           %li{ class:"nav-item" }
             %a{ class:"nav-link btn btn-outline-danger btn-small", href:"/logout" }
               Logout
-          %li{ class:"nav-item" }
-            %a{ class:"nav-link btn btn-outline-secondary btn-small", href:"/logout" }
-              Logout
-          %li{ class:"nav-item" }
-            %a{ class:"nav-link btn btn-outline-secondary btn-small", href:"/logout" }
-              Logout
-          %li{ class:"nav-item" }
-            %a{ class:"nav-link btn btn-outline-secondary btn-small", href:"/logout" }
-              Logout
+  %div{ class:"row" }
+    %div{ class:"jumbotron col-sm-12" }
+      =collection_select(:symb, :name, @symbols, :symb, :name, {}, { size: @symbols.length } )

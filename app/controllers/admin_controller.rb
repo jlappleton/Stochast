@@ -30,7 +30,7 @@ class AdminController < ApplicationController
       redirect_to("/")
       return
     end
-    #@symbols = get_iex_hash "ref-data/symbols"
+    @symbols = TickerSymbol.all
   end
   def privacy_policy
   end
