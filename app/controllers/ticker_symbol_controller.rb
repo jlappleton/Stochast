@@ -11,7 +11,13 @@ class TickerSymbolController < ApplicationController
   ##
   # home page for site, displays all available symbols
   def index
-    @ticker = TickerSymbol.all
+    tickers = TickerSymbol.all
+    @ticker = Array.new(tickers.length){ Array.new(3) }
+    i = 0
+    tickers.each do |s|
+      @ticker[i%3].append s
+      i += 1
+    end
   end
   ##
   # renders page that displays info on a single symbol

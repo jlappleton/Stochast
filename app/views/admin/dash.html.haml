@@ -6,6 +6,17 @@
           %li{ class:"nav-item" }
             %a{ class:"nav-link btn btn-outline-danger btn-small", href:"/logout" }
               Logout
-  %div{ class:"row" }
-    %div{ class:"jumbotron col-sm-12" }
-      =collection_select(:symb, :name, @symbols, :symb, :name, {}, { size: @symbols.length } )
+  %div{ class:"jumbotron col-sm-12" }
+    %div{ class: "row justify-content-center" }
+      %div{ class:"card bg-success mb-3" }
+        %div{ class:"card-header" }
+          %h4{ class:"card-title" }
+            Covered
+        %div{ class:"card-body" }
+          =collection_select( :symb, :name, @symbols, :symb, :name, {}, { size:12 } )
+      %div{ class:"card bg-info mb-3" }
+        %div{ class:"card-header" }
+          %h4{ class:"card-title" }
+            Add and Train in New
+        %div{ class:"card-body" }
+          =collection_select( :symb, :name, @symbols, :symb, :name, {}, { size:12 } )

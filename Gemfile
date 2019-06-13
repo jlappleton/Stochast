@@ -36,6 +36,11 @@ gem 'omniauth-google-oauth2'
 
 gem 'iex-ruby-client'
 
+gem 'aws-sdk-rails'
+gem 'aws-sdk-sagemaker'
+gem 'aws-sdk-sagemakerruntime'
+gem 'aws-sdk-s3'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -3,23 +3,23 @@
   %div{ class: "card border-success mb-3" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
-        = params[:symbol]
+        prediction json
     %div{ class: "card-body" }
       %p{ class: "card-text" }
-        text
+        =pp @pred_req_data
 %div{ class: "col-md-4" }
   %div{ class: "card border-success mb-3" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
-        = params[:task_id]
+        prediction
     %div{ class: "card-body" }
       %p{ class: "card-text" }
-        text
+        =pp @pred.body.string
 %div{ class: "col-md-4" }
   %div{ class: "card border-success mb-3" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
-        = params[:answer]
+        Some Graph thing
     %div{ class: "card-body" }
       %p{ class: "card-text" }
-        text
+        = line_chart( @iex_chart_data )
