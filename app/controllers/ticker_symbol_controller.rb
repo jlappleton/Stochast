@@ -25,7 +25,8 @@ class TickerSymbolController < ApplicationController
     t_symbol = params[:id]
     @symb = TickerSymbol.find_by symb: t_symbol
     @task = Task.find_by symb: t_symbol
-    if @task.nil?
+    if @task.nil? or 0.51 > rand
+      url = "stock" + t_symbol + "/news/last/5"
       @task = Task.find (1 + rand(Task.all.count))
     end
     @url = "stock/" + t_symbol + "/intraday-prices/?chartIEXOnly=true&filter=minute,average,high,low,open,close"
