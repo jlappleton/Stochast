@@ -1,25 +1,40 @@
 - predict = Prediction.where(["symbol = ?", params[:symbol]]).last
-%div{ class: "col-md-4" }
-  %div{ class: "card border-success mb-3" }
+%div{ class: "col-md-12" }
+  %div{ class: "card border-success mb-12" }
+    %div{ class: "card-header" }
+      %h4{ class: "card-title" }
+        Projected Closing Prices
+    %div{ class: "card-body" }
+      %p{ class: "card-text" }
+        = line_chart( @pred_chart_data, dataset: { fill: 3, fill: 3, fill: 3, fill: 3 } )
+%div{ class: "col-md-12" }
+  %div{ class: "card border-success mb-12" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
         prediction json
     %div{ class: "card-body" }
-      %p{ class: "card-text" }
-        =pp @pred_req_data
-%div{ class: "col-md-4" }
-  %div{ class: "card border-success mb-3" }
+      %table{ class: "table table-hover" }
+        %thead
+          %tr
+            %th{ scope: 'col' }
+              Quantile
+            -@next_dates.each do |date|
+              %th{ scope: 'col' }
+                =date
+        %tbody
+          -@pred_chart_data.last(3).each do |s|
+            %tr
+              %th{ scope: 'row' }
+                =s["name"]
+              -s["data"].last(5).each do |price|
+                %th{ scope: "row" }
+                  ="%.2f" % price[1]
+
+%div{ class: "col-md-12" }
+  %div{ class: "card border-success mb-12" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
         prediction
     %div{ class: "card-body" }
       %p{ class: "card-text" }
-        =pp @pred.body.string
-%div{ class: "col-md-4" }
-  %div{ class: "card border-success mb-3" }
-    %div{ class: "card-header" }
-      %h4{ class: "card-title" }
-        Some Graph thing
-    %div{ class: "card-body" }
-      %p{ class: "card-text" }
-        = line_chart( @iex_chart_data )
+        =pp @pred_chart_data
