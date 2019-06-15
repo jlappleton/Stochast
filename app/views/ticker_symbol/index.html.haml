@@ -1,6 +1,8 @@
 %div{ class: "jumbotron"}
   %div{ class: "container"}
-    %div{ class: "row"}
-      - TickerSymbol.find_each do |sym|
-        %div{ class: "col-sm"}
-        -display_symbol(sym)
+    -@ticker.each do |t|
+      %div{ class: "row"}
+        -t.each do |s|
+          %span{ style: "width: 1rem" }
+          -display_symbol(s)
+          

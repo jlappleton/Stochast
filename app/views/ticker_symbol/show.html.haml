@@ -6,7 +6,7 @@
     = heading
   %div{ class: "container" }
     %div{ class: "row justify-content-center", id: "task-prediction" }
-      %div{ class: "col-lg-11" }
+      %div{ class: "col-lg-12" }
         %div{ class: "card border-danger mb-3" }
           %div{ class: "card-header" }
             %h4{ class: "card-title" }
@@ -14,10 +14,13 @@
           %div{ class: "card-body" }
             %p{ class: "card-text" }
               =@task[:question]
-            = link_to("Read More", @task[:content])
+            %p{ class: "card-text" }
+              = @task[:content]
+            %a{ href: @task["link"], target: "__blank" }
+              Read More
             %p{ class: "card-text" }
               How will this effect 
-              =@symb[:name]
+              =@task[:symb]
             - task_uri = "/prediction/" + @symb[:symb] + "/" + @task[:id].to_s
             %div{ class: "container text-left" }
               %div{ class:"col-lg-3" }
@@ -69,7 +72,7 @@
             %h4{ class: "card-title" }
               chart_data
           %div{ class: "card-body" }
-            =pp @vol_chart_data
+            put something here
       %div{ class: "col-sm-4" }
         %div{ class: "card border-info mb-3" }
           %div{ class: "card-header" }
@@ -77,4 +80,4 @@
               orig_data
           %div{ class: "card-body" }
             %p{ class: "card-text" }
-              = pp @intraday
+              also here

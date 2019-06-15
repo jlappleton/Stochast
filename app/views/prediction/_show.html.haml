@@ -1,25 +1,58 @@
 - predict = Prediction.where(["symbol = ?", params[:symbol]]).last
-%div{ class: "col-md-4" }
-  %div{ class: "card border-success mb-3" }
+%div{ class: "col-md-12" }
+  %div{ class: "card border-success mb-12" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
-        = params[:symbol]
+        Projected Closing Prices
     %div{ class: "card-body" }
       %p{ class: "card-text" }
-        text
-%div{ class: "col-md-4" }
-  %div{ class: "card border-success mb-3" }
+        = line_chart( @pred_chart_data, dataset: {  fill: 3 } )
+%div{ class: "col-md-12" }
+  %div{ class: "card border-success mb-12" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
-        = params[:task_id]
-    %div{ class: "card-body" }
-      %p{ class: "card-text" }
-        text
-%div{ class: "col-md-4" }
-  %div{ class: "card border-success mb-3" }
+        prediction json
+    %div{ class: "card-body table-responsive" }
+      %table{ class: "table table-hover table-lg" }
+        %thead
+          %tr
+            %th{ scope: 'col' }
+              Quantile
+            -@next_dates.each do |date|
+              %th{ scope: 'col' }
+                =date
+        %tbody
+          -@pred_chart_data.last(3).each do |s|
+            %tr
+              %th{ scope: 'row' }
+                =s["name"]
+              -s["data"].last(5).each do |price|
+                %th{ scope: "row" }
+                  ="%.2f" % price[1]
+
+%div{ class: "col-md-12" }
+  %div{ class: "card border-success mb-12" }
     %div{ class: "card-header" }
       %h4{ class: "card-title" }
-        = params[:answer]
+        News
     %div{ class: "card-body" }
-      %p{ class: "card-text" }
-        text
+      .list-group{ "overflow-x" => "auto", "white-space" => "nowrap" }
+        -@news.each do |n|
+          %a.list-group-item.list-group-item-action.flex-column.align-items-start{:href => n["url"], :target => "__blank" }
+            .d-flex.w-100.justify-content-between
+              %h5.mb-1
+                =n["headline"]
+              %small
+                =Time.at(n["datetime"]/1000).to_datetime.to_s
+            %p{class: "card-body", overflow: "hidden"}
+              -end_text = " READ MORE"
+              -if n["summary"].last == '.'
+                -end_text.prepend "..."
+              =n["summary"][0..511]
+              %span{class: "text-info"}
+                =end_text
+            .d-flex.w-100.justify-content-between
+              %small.mb-1{float: "left"}
+                =n["source"]
+              %small{ float: 'right' }
+                =n["related"]
