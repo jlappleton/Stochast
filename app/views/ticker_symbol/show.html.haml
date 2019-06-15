@@ -14,7 +14,10 @@
           %div{ class: "card-body" }
             %p{ class: "card-text" }
               =@task[:question]
-            = link_to("Read More", @task[:content])
+            %p{ class: "card-text" }
+              = @task[:content]
+            %a{ href: @task["link"], target: "__blank" }
+              Read More
             %p{ class: "card-text" }
               How will this effect 
               =@task[:symb]

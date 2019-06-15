@@ -8,6 +8,15 @@ class PredictionController < ApplicationController
     resp = http.request(req)
     resp.body
   end
+  def get_iex_json api_call
+    iex_token = Rails.application.credentials.iex[:publishable]
+    url = URI.parse("https://cloud.iexapis.com/stable/" + api_call + "?token=" + iex_token.to_s)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    req = Net::HTTP::Get.new url.request_uri
+    @resp = http.request(req)
+    @resp.body
+  end
   def get_prediction data
     sm_client = Aws::SageMakerRuntime::Client.new( credentials:  Aws::Credentials.new(Rails.application.credentials[:aws][:access_key_id], Rails.application.credentials[:aws][:secret_access_key]), region: "us-east-1" )
     sm_client.invoke_endpoint( { endpoint_name: 'stochast-predictions', body: data } )
@@ -35,5 +44,7 @@ class PredictionController < ApplicationController
     @pred_chart_data.each { |s| s['data'].unshift @iex_chart_data[-1] }
     old_series = { name: params[:symbol], data: @iex_chart_data.last(15) }
     @pred_chart_data.unshift(old_series)
+    @news_url = "stock/" + params[:symbol] + "/news/last/5"
+    @news = JSON.parse( get_iex_json( @news_url ) )
   end
 end
