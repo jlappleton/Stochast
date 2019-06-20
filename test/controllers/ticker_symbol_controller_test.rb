@@ -15,5 +15,5 @@ class TickerSymbolControllerTest < ActionDispatch::IntegrationTest
     get "/about"
     assert_response :success
   end
-
+  
 end
