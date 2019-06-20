@@ -20,13 +20,7 @@ class TickerSymbolController < ApplicationController
   ##
   # home page for site, displays all available symbols
   def index
-    tickers = TickerSymbol.all
-    @ticker = Array.new(tickers.length){ Array.new(3) }
-    i = 0
-    tickers.each do |s|
-      @ticker[i%3].append s
-      i += 1
-    end
+    @tickers = TickerSymbol.all
   end
   ##
   # renders page that displays info on a single symbol
@@ -44,6 +38,8 @@ class TickerSymbolController < ApplicationController
         end
       end
     end
+    @task = Task.where(symb: t_symbol)
+    @task = @task[rand(@task.length)]
     @url = "stock/" + t_symbol + "/intraday-prices/?chartIEXOnly=true&filter=minute,average,high,low,open,close"
     @intraday = JSON.parse(get_iex_json_with_filters(@url)).select { |q| q["average"] }
     @id_chart_data = @intraday.map { |q| [q["minute"], q["average"]] }
@@ -55,5 +51,24 @@ class TickerSymbolController < ApplicationController
   def about
     require "github/markup"
     @readme = GitHub::Markup.render("README.md", File.read("README.md")).html_safe
+  end
+  ##
+  # adds a symbol to the database for tracking
+  def add
+    unless TickerSymbol.where(symb: params['new_symbol']).nil?
+      url = 'stock/' + params['new_symbol'] + '/company'
+      company_data = JSON.parse( get_iex_json( url ) )
+      print company_data
+      unless company_data == 'Unknown symbol'
+          TickerSymbol.create( symb: company_data["symbol"], name: company_data["companyName"], exchange: company_data["exchange"], industry: company_data["industry"], sector: company_data["sector"] )
+      end
+    end
+    render('covered_symbols')
+  end
+  ##
+  # removes a symbol from the database
+  def remove
+    TickerSymbol.where(symb: params['symb']['name']).destroy_all
+    render('covered_symbols')
   end
 end

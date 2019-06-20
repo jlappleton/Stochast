@@ -11,12 +11,33 @@
       %div{ class:"card bg-success mb-3" }
         %div{ class:"card-header" }
           %h4{ class:"card-title" }
-            Covered
+            Add & Remove Stock Symbols
         %div{ class:"card-body" }
-          =collection_select( :symb, :name, @symbols, :symb, :name, {}, { size:12 } )
+          %div{ class:"row" }
+            %div{ class:"col" }
+              %div{ class:"covered-symbols" }
+                =form_tag("/remove", remote: true) do
+                  =collection_select( :symb, :name, @symbols, :symb, :name, {}, { size:12 } )
+                  =button_tag "Remove Symbol"
+            %div{ class:"col" }
+              %div{ class:"add-remove-text" }
+                %div{ class:"col" }
+                  =form_tag("/add", remote: true) do
+                    %div{ class:"row" }
+                      =text_field_tag 'new_symbol'
+                    %div{ class:"row" }
+                      =button_tag 'Add'
+    %div{ class: "row justify-content-center" }
       %div{ class:"card bg-info mb-3" }
         %div{ class:"card-header" }
           %h4{ class:"card-title" }
-            Add and Train in New
+            Get Prediction Data
         %div{ class:"card-body" }
-          =collection_select( :symb, :name, @symbols, :symb, :name, {}, { size:12 } )
+          %div{ class:"row" }
+            %div{ class:"col" }
+              %div{ class:"covered-symbols" }
+                =form_tag("/prediction/admin", remote: true) do
+                  =collection_select( :symb, :name, @symbols, :symb, :name, {}, { size:12 } )
+                  =button_tag "Get Prediction"
+          %div{ class:"row" }
+            %div{ class:"col", id:"task-prediction" }

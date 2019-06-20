@@ -47,4 +47,8 @@ class PredictionController < ApplicationController
     @news_url = "stock/" + params[:symbol] + "/news/last/5"
     @news = JSON.parse( get_iex_json( @news_url ) )
   end
+  def show_admin
+    params['symbol'] = params['symb']['name']
+    show
+  end
 end
