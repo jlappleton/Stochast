@@ -1,6 +1,6 @@
 %div{ class: "jumbotron"}
   %div{ class: "container"}
-    -@ticker.each do |t|
+    -@tickers.each_slice(3) do |t|
       %div{ class: "row"}
         -t.each do |s|
           %span{ style: "width: 1rem" }

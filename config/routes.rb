@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'logout', to: 'admin#logout'
   get 'dashboard', to: 'admin#dash'
+  post 'add', to: 'ticker_symbol#add'
+  post 'remove', to: 'ticker_symbol#remove'
+  post 'prediction/admin', to: 'prediction#show_admin'
+  get '*path' => redirect('/')
 end
